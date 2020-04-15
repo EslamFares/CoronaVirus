@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'package:coronavirus/datasource.dart';
 import 'package:coronavirus/pages/countryPage.dart';
@@ -16,6 +17,8 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
 
+  final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
+  new GlobalKey<RefreshIndicatorState>();
 
   Map worldData;
   fetchWorldWideData() async {
@@ -53,104 +56,119 @@ class HomePageState extends State<HomePage> {
         centerTitle: false,
         title: Text('Corona Virus (COVID-19)'),
       ),
-      body: SingleChildScrollView(
+      body: RefreshIndicator(
+        onRefresh:_onRefresh,
+        child: SingleChildScrollView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
 
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
+              Padding(
+                padding:
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text( countryData[indexnum.indexchose]['country'], style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),),
+                    GestureDetector(
+                      onTap:(){
+                        Navigator.push(context, MaterialPageRoute(builder:
+                            (context)=>CountryPage()));
+                      } ,
+                      child: Container(
+                          alignment: Alignment.center,
+                          width: 160,
+                          height: 100,
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(Radius.circular(25)),
 
-            Padding(
-              padding:
-              const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text( countryData[indexnum.indexchose]['country'], style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),),
-                  GestureDetector(
-                    onTap:(){
-                      Navigator.push(context, MaterialPageRoute(builder:
-                          (context)=>CountryPage()));
-                    } ,
-                    child: Container(
+                              color: primaryBlack
+                          ),
+                          child: Column(
+                            children: <Widget>[
+                              Image.network(
+                                countryData[indexnum.indexchose]['countryInfo']['flag'],
+                                height: 50,
+                                width: 50,
+                              ),
+                              Text('Choose Country',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),)
+                            ],
+                          )
+                    ),
+                    ),
+                  ],
+                ),
+              ),
+              countryData==null?Center(child: CircularProgressIndicator()): CountryWidePanel(),
+              SizedBox(height: 30,),
+              Padding(
+                padding: const EdgeInsets.only(top: 24,left: 16,),
+                child: Text('Most affected Countries', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),),
+              ),
+              SizedBox(height: 10,),
+              countryData==null?Container(): MostAffectedCountriesPanel(countryData:countryData ,),
+
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text('WorldWide', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),),
+                    GestureDetector(
+                      onTap:(){
+                        Navigator.push(context, MaterialPageRoute(builder:
+                        (context)=>CountryPage()));
+                      } ,
+                      child: Container(
                         alignment: Alignment.center,
-                        width: 160,
-                        height: 100,
+                        width: 130,
                         padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
+                          decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(25)),
 
                             color: primaryBlack
-                        ),
-                        child: Column(
-                          children: <Widget>[
-                            Image.network(
-                              countryData[indexnum.indexchose]['countryInfo']['flag'],
-                              height: 50,
-                              width: 50,
-                            ),
-                            Text('Choose Country',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),)
-                          ],
-                        )
-                  ),
-                  ),
-                ],
+                          ),
+                          child: Text('Regional', style: TextStyle(
+                          fontSize: 16,color: Colors.white, fontWeight: FontWeight.bold),)),
+                    ),
+
+
+                  ],
+                ),
               ),
-            ),
-            countryData==null?Center(child: CircularProgressIndicator()): CountryWidePanel(),
-            SizedBox(height: 30,),
-            Padding(
-              padding: const EdgeInsets.only(top: 24,left: 16,),
-              child: Text('Most affected Countries', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),),
-            ),
-            SizedBox(height: 10,),
-            countryData==null?Container(): MostAffectedCountriesPanel(countryData:countryData ,),
-
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text('WorldWide', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),),
-                  GestureDetector(
-                    onTap:(){
-                      Navigator.push(context, MaterialPageRoute(builder:
-                      (context)=>CountryPage()));
-                    } ,
-                    child: Container(
-                      alignment: Alignment.center,
-                      width: 130,
-                      padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(25)),
-
-                          color: primaryBlack
-                        ),
-                        child: Text('Regional', style: TextStyle(
-                        fontSize: 16,color: Colors.white, fontWeight: FontWeight.bold),)),
-                  ),
-
-
-                ],
+              worldData==null?CircularProgressIndicator(): WorldWidePanel(worldData: worldData,),
+              SizedBox(height: 30,),
+              InfoPanel(),
+              SizedBox(height: 20,),
+              Center(
+                child: Text('All thanks and appreciation to the White Army',style: TextStyle(
+                  fontSize: 16,fontWeight: FontWeight.bold,color: Colors.pinkAccent
+                ),),
               ),
-            ),
-            worldData==null?CircularProgressIndicator(): WorldWidePanel(worldData: worldData,),
-            SizedBox(height: 30,),
-            InfoPanel(),
-            SizedBox(height: 20,),
-            Center(
-              child: Text('All thanks and appreciation to the White Army',style: TextStyle(
-                fontSize: 16,fontWeight: FontWeight.bold,color: Colors.pinkAccent
-              ),),
-            ),
-            SizedBox(height: 60,)
-          ],
+              SizedBox(height: 60,)
+            ],
+          ),
         ),
       ),
     );
   }
-}
 
-class updown{
+  Future<Null> _onRefresh() {
+    Completer<Null> completer = new Completer<Null>();
+
+    new Timer(new Duration(seconds: 3), () {
+      print("timer complete");
+      completer.complete();
+    });
+
+    return completer.future;
+  }
+
+  Widget _itemBuilder(BuildContext context, int index) {
+    return new ListTile(title: Text("Todo $index"));
+  }
 
 }
