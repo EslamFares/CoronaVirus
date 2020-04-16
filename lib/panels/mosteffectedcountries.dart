@@ -1,8 +1,7 @@
-import 'package:coronavirus/pages/countryPage.dart';
 import 'package:flutter/material.dart';
 
 class MostAffectedCountriesPanel extends StatelessWidget {
-  @override
+
   final List countryData;
   const MostAffectedCountriesPanel({Key key, this.countryData})
       : super(key: key);

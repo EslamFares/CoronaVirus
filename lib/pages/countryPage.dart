@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class CountryPage extends StatefulWidget {
+  // ignore: non_constant_identifier_names
+  static int IndexChoose=59;
 
   @override
   _CountryPageState createState() => _CountryPageState();
@@ -24,15 +26,14 @@ class _CountryPageState extends State<CountryPage> {
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Country State'),
       ),
-      body: countryData == null ? Center(
+      body: countryData == null
+          ? Center(
               child: CircularProgressIndicator(),
             )
           : ListView.builder(
@@ -83,7 +84,7 @@ class _CountryPageState extends State<CountryPage> {
                         ),
                       ),
                       SizedBox(
-                        width: 50,
+                        width: 15,
                       ),
                       Expanded(
                         child: Container(
@@ -125,13 +126,15 @@ class _CountryPageState extends State<CountryPage> {
                       ),
                       Container(
                         child: IconButton(
-                          icon: Icon(Icons.check_circle,color:index==indexnum.indexchose? Colors.blue:Colors.grey,),
-                          onPressed: (){
+                          icon: Icon(
+                            Icons.check_circle,
+                            color: index == CountryPage.IndexChoose ? Colors.blue : Colors.grey,
+                          ),
+                          onPressed: () {
                             Navigator.pop(context);
-                           setState(() {
-                             indexnum.indexchose=index;
-                           });
-
+                            setState(() {
+                              CountryPage.IndexChoose = index ;
+                            });
                           },
                         ),
                       )
@@ -141,9 +144,4 @@ class _CountryPageState extends State<CountryPage> {
               }),
     );
   }
-}
-
-class indexnum{
-  static var indexchose= 59;
-
 }

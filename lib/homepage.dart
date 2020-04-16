@@ -17,9 +17,6 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
 
-  final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
-  new GlobalKey<RefreshIndicatorState>();
-
   Map worldData;
   fetchWorldWideData() async {
     http.Response response = await http.get('https://corona.lmao.ninja/all');
@@ -53,6 +50,7 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Text(''),
         centerTitle: false,
         title: Text('Corona Virus (COVID-19)'),
       ),
@@ -70,7 +68,7 @@ class HomePageState extends State<HomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text( countryData[indexnum.indexchose]['country'], style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),),
+                    Text( countryData[CountryPage.IndexChoose]['country'], style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),),
                     GestureDetector(
                       onTap:(){
                         Navigator.push(context, MaterialPageRoute(builder:
@@ -89,7 +87,7 @@ class HomePageState extends State<HomePage> {
                           child: Column(
                             children: <Widget>[
                               Image.network(
-                                countryData[indexnum.indexchose]['countryInfo']['flag'],
+                                countryData[CountryPage.IndexChoose]['countryInfo']['flag'],
                                 height: 50,
                                 width: 50,
                               ),
@@ -165,10 +163,6 @@ class HomePageState extends State<HomePage> {
     });
 
     return completer.future;
-  }
-
-  Widget _itemBuilder(BuildContext context, int index) {
-    return new ListTile(title: Text("Todo $index"));
   }
 
 }

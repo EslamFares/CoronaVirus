@@ -1,4 +1,5 @@
 import 'package:coronavirus/datasource.dart';
+import 'package:coronavirus/firstpage.dart';
 import 'package:coronavirus/homepage.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
         primaryColor: primaryBlack,
         fontFamily: 'Circular'
       ),
-      home:HomePage() ,
+      home:FirstScreen() ,
     );
   }
 }

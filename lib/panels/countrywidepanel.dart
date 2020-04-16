@@ -43,40 +43,40 @@ class _CountryWidePanelState extends State<CountryWidePanel> {
             title: 'New cases ',
             panelColor: Colors.amber[100],
             textColor: Colors.green,
-            count: countryData[indexnum.indexchose]['todayCases'].toString(),
+            count: countryData[CountryPage.IndexChoose==null?59:CountryPage.IndexChoose]['todayCases'].toString(),
           ),
 
           StatusPanel(
             title: 'Today Deaths',
             panelColor: Colors.blue[100],
             textColor: Colors.blue,
-            count: countryData[indexnum.indexchose]['todayDeaths'].toString(),
+            count: countryData[CountryPage.IndexChoose==null?59:CountryPage.IndexChoose]['todayDeaths'].toString(),
           ),
           StatusPanel(
             title: 'RECOVER',
             panelColor: Colors.green[100],
             textColor: Colors.green,
-            count: countryData[indexnum.indexchose]['recovered'].toString(),
+            count: countryData[CountryPage.IndexChoose==null?59:CountryPage.IndexChoose]['recovered'].toString(),
           ),
           StatusPanel(
             title: 'DEATHS',
             panelColor: Colors.grey[400],
             textColor: Colors.grey[800],
-            count: countryData[indexnum.indexchose]['deaths'].toString(),
+            count: countryData[CountryPage.IndexChoose==null?59:CountryPage.IndexChoose]['deaths'].toString(),
           ),
 
           StatusPanel(
             title: 'CONFIRMED',
             panelColor: Colors.red[100],
             textColor: Colors.red,
-            count: countryData[indexnum.indexchose]['cases'].toString(),
+            count: countryData[CountryPage.IndexChoose==null?59:CountryPage.IndexChoose]['cases'].toString(),
           ),
 
           StatusPanel(
             title: 'active',
             panelColor: Colors.pink[100],
             textColor: Colors.green,
-            count: countryData[indexnum.indexchose]['active'].toString(),
+            count: countryData[CountryPage.IndexChoose==null?59:CountryPage.IndexChoose]['active'].toString(),
           ),
         ],
       ),
