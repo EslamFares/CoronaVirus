@@ -13,8 +13,7 @@ class CountryPage extends StatefulWidget {
 class _CountryPageState extends State<CountryPage> {
   List countryData;
   fetchCountryData() async {
-    http.Response response =
-        await http.get('https://corona.lmao.ninja/countries');
+    http.Response response = await http.get('https://corona.lmao.ninja/countries');
     setState(() {
       countryData = json.decode(response.body);
     });

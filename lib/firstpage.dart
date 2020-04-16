@@ -1,3 +1,5 @@
+
+//================dont use it I but it in handel ERROR i think this best================
 import 'dart:async';
 import 'package:coronavirus/homepage.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,7 +15,7 @@ class _FirstScreenState extends State<FirstScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds:3),
+    Timer(Duration(seconds:2),
             ()=>Navigator.pushAndRemoveUntil(context,
               MaterialPageRoute(builder: (BuildContext context) => HomePage()),
               ModalRoute.withName('/'),

@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart'as http;
+import 'package:http/http.dart' as http;
 import 'package:coronavirus/pages/countryPage.dart';
+import 'dart:async';
 class CountryWidePanel extends StatefulWidget {
   @override
   _CountryWidePanelState createState() => _CountryWidePanelState();
@@ -12,12 +13,12 @@ class _CountryWidePanelState extends State<CountryWidePanel> {
   List countryData;
   fetchCountryData() async {
     http.Response response =
-    await http.get('https://corona.lmao.ninja/countries');
+        await http.get('https://corona.lmao.ninja/countries');
     setState(() {
       countryData = json.decode(response.body);
-      print('test');
     });
   }
+
   @override
   void initState() {
     fetchCountryData();
@@ -32,54 +33,54 @@ class _CountryWidePanelState extends State<CountryWidePanel> {
 
   @override
   Widget build(BuildContext context) {
+    var indexx = CountryPage.IndexChoose;
     return Container(
-      child: GridView(
-        shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, childAspectRatio: 2),
-        children: <Widget>[
-          StatusPanel(
-            title: 'New cases ',
-            panelColor: Colors.amber[100],
-            textColor: Colors.green,
-            count: countryData[CountryPage.IndexChoose==null?59:CountryPage.IndexChoose]['todayCases'].toString(),
-          ),
+        child: GridView(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2, childAspectRatio: 2),
+                  children: <Widget>[
+                    StatusPanel(
+                      title: 'New cases ',
+                      panelColor: Colors.amber,
+                      textColor: Colors.black,
+                      count: countryData[indexx]['todayCases'].toString(),
+                    ),
+                    StatusPanel(
+                      title: 'Today Deaths',
+                      panelColor: Colors.blue,
+                      textColor: Colors.blue,
+                      count: countryData[indexx]['todayDeaths'].toString(),
+                    ),
+                    StatusPanel(
+                      title: 'RECOVER',
+                      panelColor: Colors.green,
+                      textColor: Colors.green,
+                      count: countryData[indexx]['recovered'].toString(),
+                    ),
+                    StatusPanel(
+                      title: 'DEATHS',
+                      panelColor: Colors.grey,
+                      textColor: Colors.grey[800],
+                      count: countryData[indexx]['deaths'].toString(),
+                    ),
+                    StatusPanel(
+                      title: 'CONFIRMED',
+                      panelColor: Colors.teal,
+                      textColor: Colors.red,
+                      count: countryData[indexx]['cases'].toString(),
+                    ),
+                    StatusPanel(
+                      title: 'active',
+                      panelColor: Colors.pink,
+                      textColor: Colors.pink,
+                      count: countryData[indexx]['active'].toString(),
+                    ),
+                  ],
+                ),
 
-          StatusPanel(
-            title: 'Today Deaths',
-            panelColor: Colors.blue[100],
-            textColor: Colors.blue,
-            count: countryData[CountryPage.IndexChoose==null?59:CountryPage.IndexChoose]['todayDeaths'].toString(),
-          ),
-          StatusPanel(
-            title: 'RECOVER',
-            panelColor: Colors.green[100],
-            textColor: Colors.green,
-            count: countryData[CountryPage.IndexChoose==null?59:CountryPage.IndexChoose]['recovered'].toString(),
-          ),
-          StatusPanel(
-            title: 'DEATHS',
-            panelColor: Colors.grey[400],
-            textColor: Colors.grey[800],
-            count: countryData[CountryPage.IndexChoose==null?59:CountryPage.IndexChoose]['deaths'].toString(),
-          ),
 
-          StatusPanel(
-            title: 'CONFIRMED',
-            panelColor: Colors.red[100],
-            textColor: Colors.red,
-            count: countryData[CountryPage.IndexChoose==null?59:CountryPage.IndexChoose]['cases'].toString(),
-          ),
-
-          StatusPanel(
-            title: 'active',
-            panelColor: Colors.pink[100],
-            textColor: Colors.green,
-            count: countryData[CountryPage.IndexChoose==null?59:CountryPage.IndexChoose]['active'].toString(),
-          ),
-        ],
-      ),
     );
   }
 }
@@ -98,8 +99,15 @@ class StatusPanel extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     return Container(
       decoration: BoxDecoration(
-          color: panelColor,
-          borderRadius: BorderRadius.all(Radius.circular(16))),
+          color: panelColor.withOpacity(.2),
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+        border: Border(
+          top: BorderSide(width: 3.0, color:panelColor),
+          left: BorderSide(width: 3.0, color:panelColor),
+          right: BorderSide(width: 3.0, color: panelColor),
+          bottom: BorderSide(width: 3.0, color: panelColor),
+        ),
+      ),
       margin: EdgeInsets.all(10),
       height: 60,
       width: width / 2,

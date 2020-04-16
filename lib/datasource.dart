@@ -8,62 +8,76 @@ class DataSource{
 
   static List questionAnswers = [
     {
-      "question": "What is a coronavirus?",
+      "question": "تدابير الوقاية الأساسية من فيروس كورونا (كوفيد-19)",
       "answer":
-      "Coronaviruses are a large family of viruses which may cause illness in animals or humans.  In humans, several coronaviruses are known to cause respiratory infections ranging from the common cold to more severe diseases such as Middle East Respiratory Syndrome (MERS) and Severe Acute Respiratory Syndrome (SARS). The most recently discovered coronavirus causes coronavirus disease COVID-19."
+      " احرص على متابعة آخر المستجدات عن فاشية مرض كوفيد-19، على الموقع الإلكتروني لمنظمة الصحة العالمية ومن خلال سلطات الصحة العامة المحلية والوطنية. وفي حين لا تزال عدوى كوفيد-19 متفشية في الصين بشكل أساسي، فهناك بعض بؤر التفشي في بلدان أخرى.  ومعظم الأفراد الذين يصابون بالعدوى يشعرون بأعراض خفيفة ويتعافون، ولكن الأعراض قد تظهر بشكل أكثر حدة لدى غيرهم. احرص على العناية بصحتك وحماية الآخرين بواسطة التدابير التالية:"
     },
     {
-      "question": "What is COVID-19?",
+      "question": "اغسل اليدين بانتظام",
       "answer":
-      "COVID-19 is the infectious disease caused by the most recently discovered coronavirus. This new virus and disease were unknown before the outbreak began in Wuhan, China, in December 2019."
+      "لماذا؟ إن تنظيف يديك بالماء والصابون أو فركهما بمطهر كحولي من شأنه أن يقتل الفيروسات التي قد تكون على يديك."
     },
     {
-      "question": "What are the symptoms of COVID-19?",
+      "question": "احرص على ممارسات النظافة التنفسية",
       "answer":
-      "The most common symptoms of COVID-19 are fever, tiredness, and dry cough. Some patients may have aches and pains, nasal congestion, runny nose, sore throat or diarrhea. These symptoms are usually mild and begin gradually. Some people become infected but don’t develop any symptoms and don't feel unwell. Most people (about 80%) recover from the disease without needing special treatment. Around 1 out of every 6 people who gets COVID-19 becomes seriously ill and develops difficulty breathing. Older people, and those with underlying medical problems like high blood pressure, heart problems or diabetes, are more likely to develop serious illness. People with fever, cough and difficulty breathing should seek medical attention."
+"احرص على تغطية الفم والأنف بثني المرفق أو بمنديل ورقي عند السعال أو العطس، ثم تخلص من المنديل الورقي فوراً بإلقائه في سلة مهملات مغلقة ونظف يديك بمطهر كحولي أو بالماء والصابون."
+    "لماذا؟ تغطية الفم والأنف عند السعال والعطس تمنع انتشار الجراثيم والفيروسات. أما إذا غطيت فمك وأنفك بيدك أثناء العطس والسعال فقد تنقل الجراثيم إلى كل ما تلمسه من أشياء وأشخاص.\n"
     },
     {
-      "question": "How does COVID-19 spread?",
+      "question": "تجنب الاقتراب كثيرا من الناس",
       "answer":
-      "People can catch COVID-19 from others who have the virus. The disease can spread from person to person through small droplets from the nose or mouth which are spread when a person with COVID-19 coughs or exhales. These droplets land on objects and surfaces around the person. Other people then catch COVID-19 by touching these objects or surfaces, then touching their eyes, nose or mouth. People can also catch COVID-19 if they breathe in droplets from a person with COVID-19 who coughs out or exhales droplets. This is why it is important to stay more than 1 meter (3 feet) away from a person who is sick. \nWHO is assessing ongoing research on the ways COVID-19 is spread and will continue to share updated findings."
-    },
-    {
-      "question":
-      "Can the virus that causes COVID-19 be transmitted through the air?",
-      "answer":
-      "Studies to date suggest that the virus that causes COVID-19 is mainly transmitted through contact with respiratory droplets rather than through the air"
-    },
-    {
-      "question": "Can CoVID-19 be caught from a person who has no symptoms?",
-      "answer":
-      "The main way the disease spreads is through respiratory droplets expelled by someone who is coughing. The risk of catching COVID-19 from someone with no symptoms at all is very low. However, many people with COVID-19 experience only mild symptoms. This is particularly true at the early stages of the disease. It is therefore possible to catch COVID-19 from someone who has, for example, just a mild cough and does not feel ill.  WHO is assessing ongoing research on the period of transmission of COVID-19 and will continue to share updated findings.    "
+          "احتفظ بمسافة لا تقل عن متر واحد (3 أقدام) بينك وبين أي شخص يسعل أو يعطس."
+          "لماذا؟ عندما يسعل الشخص أو يعطس، تتناثر من أنفه أو فمه قُطيرات سائلة صغيرة قد تحتوي على الفيروس. فإذا كنت شديد الاقتراب منه يمكن أن تتنفس هذه القُطيرات، بما في ذلك الفيروس المسبب لمرض كوفيد-19 إذا كان الشخص مصاباً به.\n"
     },
     {
       "question":
-      "Can I catch COVID-19 from the feces of someone with the disease?",
+      "تجنب لمس عينيك وأنفك وفمك",
       "answer":
-      "The risk of catching COVID-19 from the feces of an infected person appears to be low. While initial investigations suggest the virus may be present in feces in some cases, spread through this route is not a main feature of the outbreak. WHO is assessing ongoing research on the ways COVID-19 is spread and will continue to share new findings. Because this is a risk, however, it is another reason to clean hands regularly, after using the bathroom and before eating."
+          "لماذا؟ تلمس اليدين العديد من الأسطح ويمكنها أن تلتقط الفيروسات. وإذا تلوثت اليدان فإنهما قد تنقلان الفيروس إلى العينين أو الأنف أو الفم. ويمكن للفيروس أن يدخل الجسم عن طريق هذه المنافذ ويصيبك بالمرض."
+
+    " إذا كنت تعاني من الحمى والسعال وصعوبة التنفس، التمس المشورة الطبية على الفور، فقد تكون مصاباً بعدوى الجهاز التنفسي أو حالة مرضية وخيمة أخرى. واتصل قبل الذهاب إلى مقدم الرعاية وأخبره إن كنت قد سافرت أو خالطت أي مسافرين مؤخراً.\n"
+
+          "\n لماذا؟ إن اتصالك المسبق بمقدم الرعاية سيسمح له بتوجيهك سريعاً إلى مرفق الرعاية الصحية المناسب. وسيساعد ذلك أيضاً على منع أي انتشار محتمل للفيروس المسبب لمرض كوفيد-19 وغيره من الفيروسات."
     },
     {
-      "question": "How likely am I to catch COVID-19?",
+      "question": "تابع المستجدات واتبع نصائح مقدمي الرعاية الصحية",
       "answer":
-      "The risk depends on where you  are - and more specifically, whether there is a COVID-19 outbreak unfolding there.\nFor most people in most locations the risk of catching COVID-19 is still low. However, there are now places around the world (cities or areas) where the disease is spreading. For people living in, or visiting, these areas the risk of catching COVID-19 is higher. Governments and health authorities are taking vigorous action every time a new case of COVID-19 is identified. Be sure to comply with any local restrictions on travel, movement or large gatherings. Cooperating with disease control efforts will reduce your risk of catching or spreading COVID-19.\nCOVID-19 outbreaks can be contained and transmission stopped, as has been shown in China and some other countries. Unfortunately, new outbreaks can emerge rapidly. It’s important to be aware of the situation where you are or intend to go. WHO publishes daily updates on the COVID-19 situation worldwide."
-    },
-    {
-      "question": "Who is at risk of developing severe illness?",
-      "answer":
-      "While we are still learning about how COVID-2019 affects people, older persons and persons with pre-existing medical conditions (such as high blood pressure, heart disease, lung disease, cancer or diabetes)  appear to develop serious illness more often than others. "
-    },
-    {
-      "question": "Should I wear a mask to protect myself?",
-      "answer":
-      "Only wear a mask if you are ill with COVID-19 symptoms (especially coughing) or looking after someone who may have COVID-19. Disposable face mask can only be used once. If you are not ill or looking after someone who is ill then you are wasting a mask. There is a world-wide shortage of masks, so WHO urges people to use masks wisely.\nWHO advises rational use of medical masks to avoid unnecessary wastage of precious resources and mis-use of masks\nThe most effective ways to protect yourself and others against COVID-19 are to frequently clean your hands, cover your cough with the bend of elbow or tissue and maintain a distance of at least 1 meter (3 feet) from people who are coughing or sneezing"
+          "  احرص على متابعة آخر المستجدات بشأن مرض كوفيد-19. واتبع النصائح التي يقدمها لك مقدم الرعاية الصحية وتلك الصادرة عن سلطات الصحة العامة المحلية والوطنية أو عن رب عملك بشأن أساليب حماية نفسك والآخرين من الإصابة بعدوى كوفيد-19.\n"
+
+    "لماذا؟ لأن السلطات المحلية والوطنية لديها أحدث المعلومات عما إذا كانت عدوى كوفيد-19 قد انتشرت بالفعل في منطقتك، وهي الأقدر على تقديم النصائح بشأن ما ينبغي للناس في منطقتك فعله لحماية أنفسهم."
     },
     {
       "question":
-      "Are antibiotics effective in preventing or treating the COVID-19?",
+      "تدابير الحماية للأشخاص الذين يتواجدون في مناطق تنتشر فيها عدوى كوفيد-19 أو زاروها مؤخراً (خلال 14 يوماً الأخيرة)",
       "answer":
-      "No. Antibiotics do not work against viruses, they only work on bacterial infections. COVID-19 is caused by a virus, so antibiotics do not work. Antibiotics should not be used as a means of prevention or treatment of COVID-19. They should only be used as directed by a physician to treat a bacterial infection. "
+          "اتّبع الإرشادات الموضحة أعلاه "
+    "في حال بدأت تشعر بالتوعك، ولو بأعراض خفيفة كالصداع والحمى المنخفضة الدرجة (37.3 درجة مئوية أو أكثر) ورشح خفيف في الأنف، اعزل نفسك بالبقاء في المنزل حتى تتعافى تماما. وإذا تطلّب الأمر الاستعانة بشخص ما لإحضار ما تحتاج إليه من لوازم أو كنت مضطرا إلى الخروج لشراء ما تأكله مثلا، فارتد قناعا لتجنب نقل العدوى إلى أشخاص آخرين."
+    """
+لماذا؟ سيسمح تجنبك لمخالطة الآخرين وزيارتك للمرافق الطبية بأن تعمل هذه المرافق بمزيد من الفعّالية، وسيساعدان على حمايتك أنت والآخرين من الفيروس المسبب لمرض كوفيد-19 وسائر الفيروسات"""
+
+    "وإذا كنت تعاني من الحمى والسعال وصعوبة التنفس، التمس المشورة الطبية على الفور، فقد تكون مصاباً بعدوى الجهاز التنفسي أو حالة مرضية وخيمة أخر. واتصل قبل الذهاب إلى مقدم الرعاية وأخبره إن كنت قد سافرت أو خالطت أي مسافرين مؤخراً."
+    "لماذا؟ إن اتصالك المسبق بمقدم الرعاية سيسمح له بتوجيهك سريعاً إلى مرفق الرعاية الصحية المناسب. وسيساعد ذلك أيضاً على منع أي انتشار محتمل للفيروس المسبب لمرض كوفيد-19 وغيره من الفيروسات."
+
+    },
+    {
+      "question": "هل يجب أن أتجنب المصافحة بسبب فيروس كورونا المستجد؟",
+      "answer":
+          "نعم.لأن الفيروسات التنفسية يمكن أن تنتقل بالمصافحة ولمس العينين ‏والأنف والفم. تبادلوا التحية بالتلويح عن بعد أو بالإيماءة أو بالإنحناءة بدلا من ‏المصافحة."
+    },
+    {
+      "question": "كيف يمكن أن أحيي شخصا حتى أتفادى إصابتي بفيروس كورونا ‏المستجد؟",
+      "answer":"لتجنب الإصابة بمرض كوفيد-19، الأكثر أمانا هو تجنب التلامس ‏المباشر عند التحية. وتشمل التحية الآمنة التلويح والإيماءة والإنحناءة.‏"
+    },
+    {
+      "question": "هل ارتداء القفازات المطاطية في الأماكن العمومية فعال في منع الإصابة ‏بعدوى فيروس كورونا المستجد؟",
+      "answer":
+          "لا. إن المواظبة على غسل يديك العاريتين يضمن لك حماية أفضل من ‏الإصابة بعدوى كوفيد-19 مما ستضمنه القفازات المطاطية. إذ إن من الممكن ‏الإصابة بالفيروس عبر القفازات نفسها. فإذا لمست وجهك يمكن أن ينتقل الفيروس ‏من القفازات إلى وجهك ويصيبك بالعدوى.‏"
+    },
+    {
+      "question":
+      "شكرا",
+      "answer":
+          "نتمنى ان تكون بصحة جيدة ❤❤"
     }
   ];
 }
