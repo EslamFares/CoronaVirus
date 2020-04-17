@@ -13,7 +13,8 @@ class _CountryWidePanelState extends State<CountryWidePanel> {
   List countryData;
   fetchCountryData() async {
     http.Response response =
-        await http.get('https://corona.lmao.ninja/countries');
+    await http.get('https://corona.lmao.ninja/v2/countries');
+//    await http.get('https://corona.lmao.ninja/countries');
     setState(() {
       countryData = json.decode(response.body);
     });

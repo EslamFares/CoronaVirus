@@ -18,7 +18,9 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   Map worldData;
   fetchWorldWideData() async {
-    http.Response response = await http.get('https://corona.lmao.ninja/all');
+    http.Response response =
+    await http.get('https://corona.lmao.ninja/v2/all');
+//    await http.get('https://corona.lmao.ninja/all');
     setState(() {
       worldData = json.decode(response.body);
     });
@@ -27,7 +29,8 @@ class HomePageState extends State<HomePage> {
   List countryData;
   fetchCountryData() async {
     http.Response response =
-        await http.get('https://corona.lmao.ninja/countries');
+    await http.get('https://corona.lmao.ninja/v2/countries');
+//        await http.get('https://corona.lmao.ninja/countries');
     setState(() {
       countryData = json.decode(response.body);
     });
@@ -67,7 +70,7 @@ class HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
-                      countryData[indexx]['country'],
+                      countryData[indexx]['country'].toString(),
                       style:
                           TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                     ),
@@ -90,7 +93,7 @@ class HomePageState extends State<HomePage> {
                           child: Column(
                             children: <Widget>[
                               Image.network(
-                                countryData[indexx]['countryInfo']['flag'],
+                                countryData[59]['countryInfo']['flag'].toString(),
                                 height: 50,
                                 width: 50,
                               ),
