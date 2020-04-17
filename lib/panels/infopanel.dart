@@ -1,4 +1,5 @@
 import 'package:coronavirus/datasource.dart';
+import 'package:coronavirus/firstpage.dart';
 import 'package:coronavirus/homepage.dart';
 import 'package:coronavirus/pages/countryPage.dart';
 import 'package:coronavirus/pages/faqs.dart';
@@ -50,7 +51,7 @@ class _InfoPanelState extends State<InfoPanel> {
                 Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => HomePage()),
+                      builder: (BuildContext context) => FirstScreen()),
                   ModalRoute.withName('/'),
                 );
               });

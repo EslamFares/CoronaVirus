@@ -1,3 +1,9 @@
+
+//============= have error =================== cant solve it
+//=========== create sec page replace it  it was easy to me than solve error=========
+
+
+
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +17,9 @@ class CountryWidePanel extends StatefulWidget {
 
 class _CountryWidePanelState extends State<CountryWidePanel> {
   List countryData;
-  fetchCountryData() async {
+  Future<http.Response> fetchCountryData() async {
     http.Response response =
+    //========== new api======
     await http.get('https://corona.lmao.ninja/v2/countries');
 //    await http.get('https://corona.lmao.ninja/countries');
     setState(() {
@@ -23,6 +30,7 @@ class _CountryWidePanelState extends State<CountryWidePanel> {
   @override
   void initState() {
     fetchCountryData();
+    countryData = new List();
     super.initState();
   }
 

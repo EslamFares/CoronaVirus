@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:coronavirus/datasource.dart';
 import 'package:coronavirus/pages/countryPage.dart';
 import 'package:coronavirus/panels/countrywidepanel.dart';
+import 'package:coronavirus/panels/countrywidepanel2.dart';
 import 'package:coronavirus/panels/infopanel.dart';
 import 'package:coronavirus/panels/mosteffectedcountries.dart';
 import 'package:coronavirus/panels/wordwidepanel.dart';
@@ -18,8 +19,7 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   Map worldData;
   fetchWorldWideData() async {
-    http.Response response =
-    await http.get('https://corona.lmao.ninja/v2/all');
+    http.Response response = await http.get('https://corona.lmao.ninja/v2/all');
 //    await http.get('https://corona.lmao.ninja/all');
     setState(() {
       worldData = json.decode(response.body);
@@ -29,7 +29,7 @@ class HomePageState extends State<HomePage> {
   List countryData;
   fetchCountryData() async {
     http.Response response =
-    await http.get('https://corona.lmao.ninja/v2/countries');
+        await http.get('https://corona.lmao.ninja/v2/countries');
 //        await http.get('https://corona.lmao.ninja/countries');
     setState(() {
       countryData = json.decode(response.body);
@@ -47,6 +47,7 @@ class HomePageState extends State<HomePage> {
   void dispose() {
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     var indexx = CountryPage.IndexChoose;
@@ -63,55 +64,10 @@ class HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      countryData[indexx]['country'].toString(),
-                      style:
-                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => CountryPage()));
-                      },
-                      child: Container(
-                          alignment: Alignment.center,
-                          width: 160,
-                          height: 100,
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(25)),
-                              color: primaryBlack),
-                          child: Column(
-                            children: <Widget>[
-                              Image.network(
-                                countryData[59]['countryInfo']['flag'].toString(),
-                                height: 50,
-                                width: 50,
-                              ),
-                              Text(
-                                'Choose Country',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white),
-                              )
-                            ],
-                          )),
-                    ),
-                  ],
-                ),
-              ),
-              countryData == null
-                  ? Center(child: CircularProgressIndicator())
-                  : CountryWidePanel(),
+              CountryWidePanel2(),
+//              countryData == null
+//                  ? Center(child: CircularProgressIndicator())
+//                  : CountryWidePanel(),
               SizedBox(
                 height: 30,
               ),
@@ -120,10 +76,9 @@ class HomePageState extends State<HomePage> {
                   top: 5,
                   left: 16,
                 ),
-                child:
-                Padding(
-                  padding:
-                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 10.0, horizontal: 16),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -132,13 +87,14 @@ class HomePageState extends State<HomePage> {
                         width: 250,
                         padding: EdgeInsets.all(10),
                         decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.all(Radius.circular(25)),
+                            borderRadius: BorderRadius.all(Radius.circular(25)),
                             color: primaryBlack),
                         child: Text(
                           'The highest rates',
-                          style:
-                          TextStyle(color: Colors.white,fontSize: 22, fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
                     ],
@@ -149,7 +105,10 @@ class HomePageState extends State<HomePage> {
                 height: 10,
               ),
               countryData == null
-                  ? Container()
+                  ?  Container(child: Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Center(child: CircularProgressIndicator()),
+              ))
                   : MostAffectedCountriesPanel(
                       countryData: countryData,
                     ),
@@ -164,15 +123,15 @@ class HomePageState extends State<HomePage> {
                       width: 250,
                       padding: EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                          borderRadius:
-                          BorderRadius.all(Radius.circular(25)),
+                          borderRadius: BorderRadius.all(Radius.circular(25)),
                           color: primaryBlack),
                       child: Text(
                         'World Rate',
-                        style:
-                            TextStyle(color: Colors.white,fontSize: 22, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold),
                       ),
-
                     ),
 //                    GestureDetector(
 //                      onTap: () {
@@ -201,7 +160,10 @@ class HomePageState extends State<HomePage> {
                 ),
               ),
               worldData == null
-                  ? CircularProgressIndicator()
+                  ?  Container(child: Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Center(child: CircularProgressIndicator()),
+              ))
                   : WorldWidePanel(
                       worldData: worldData,
                     ),
@@ -215,7 +177,7 @@ class HomePageState extends State<HomePage> {
               Center(
                 child: Text(
                   'All thanks and appreciation to the White Army'
-                      '',
+                  '',
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,

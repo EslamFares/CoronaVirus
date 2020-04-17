@@ -52,7 +52,14 @@ class _FirstScreenState extends State<FirstScreen> {
                       Padding(
                         padding: EdgeInsets.only(top: 10.0),
                       ),
-                      Text('BE SAVE',style: TextStyle(color: Colors.red,fontSize: 40,fontWeight: FontWeight.bold),)
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Text('BE ',style: TextStyle(color: Colors.red,fontSize: 40,fontWeight: FontWeight.bold),),
+                          Text('SAVE',style: TextStyle(color: Colors.blue,fontSize: 40,fontWeight: FontWeight.bold),),
+                        ],
+                      )
                     ],
                   ),
                 ),

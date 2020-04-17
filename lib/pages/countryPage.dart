@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class CountryPage extends StatefulWidget {
-  // ignore: non_constant_identifier_names
   static int IndexChoose=59;
 
   @override
@@ -13,7 +12,10 @@ class CountryPage extends StatefulWidget {
 class _CountryPageState extends State<CountryPage> {
   List countryData;
   fetchCountryData() async {
-    http.Response response = await http.get('https://corona.lmao.ninja/countries');
+    http.Response response =
+    await http.get('https://corona.lmao.ninja/v2/countries');
+
+//    await http.get('https://corona.lmao.ninja/countries');
     setState(() {
       countryData = json.decode(response.body);
     });
@@ -133,6 +135,7 @@ class _CountryPageState extends State<CountryPage> {
                             Navigator.pop(context);
                             setState(() {
                               CountryPage.IndexChoose = index ;
+                              print(CountryPage.IndexChoose);
                             });
                           },
                         ),
